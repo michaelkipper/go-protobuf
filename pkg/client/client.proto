@@ -1,0 +1,19 @@
+syntax = "proto3";
+package client;
+
+message StaticLatency {
+  int32 value = 1;
+}
+
+message NormalLatency {
+  int32 mean = 1;
+  int32 stddev = 2;
+}
+
+message Latency {
+  oneof latency_type {
+    StaticLatency static = 1;
+    NormalLatency normal = 2;
+  }
+}
+
